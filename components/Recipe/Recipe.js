@@ -13,7 +13,7 @@ export default function Recipe(props) {
 					<h1 className='recipe-body-name'>{props.name}</h1>
 
 					<img
-						className='recipe-body-picture'
+						cclassName='recipe-body-picture'
 						alt={props.name}
 						src={props.picture}
 					/>

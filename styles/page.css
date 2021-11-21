@@ -46,3 +46,10 @@ body {
 .recipe-body li {
 	padding: 4px;
 }
+a {
+	color: white;
+	text-decoration: none;
+}
+a:hover {
+	border-bottom: solid 2px blue;
+}
