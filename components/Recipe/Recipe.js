@@ -1,33 +1,27 @@
 /** @format */
 
+import RecipeStyled from './Recipe.styled';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 export default function Recipe(props) {
 	return (
 		<div>
+			<style jsx>{RecipeStyled}</style>
 			<Header title={`TreinaCook - ${props.name}`} />
 
-			<main>
-				<article className='recipe-body'>
-					<h1 className='recipe-body-name'>{props.name}</h1>
+			<article className='recipe-body'>
+				<h1 className='recipe-name'>{props.name}</h1>
 
-					<img
-						cclassName='recipe-body-picture'
-						alt={props.name}
-						src={props.picture}
-					/>
+				<img className='recipe-picture' alt={props.name} src={props.picture} />
 
-					<div>
-						<i className='fas fa-stopwatch fa-fw'></i> Preparo: {props.time}{' '}
-						<br />
-						<i className='fas fa-utensils fa-fw'></i> Rendimento:{' '}
-						{props.servings}
-					</div>
+				<div>
+					<i className='fas fa-stopwatch fa-fw' /> Preparo: {props.time} <br />
+					<i className='fas fa-utensils fa-fw' /> Rendimento: {props.servings}
+				</div>
 
-					{props.children}
-				</article>
-			</main>
+				{props.children}
+			</article>
 
 			<Footer />
 		</div>
