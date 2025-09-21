@@ -1,5 +1,6 @@
 /** @format */
 
+import Image from 'next/image';
 import RecipeStyled from './Recipe.styled';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -13,7 +14,13 @@ export default function Recipe(props) {
 			<article className='recipe-body'>
 				<h1 className='recipe-name'>{props.name}</h1>
 
-				<img className='recipe-picture' alt={props.name} src={props.picture} />
+				<Image 
+					className='recipe-picture' 
+					alt={props.name} 
+					src={props.picture} 
+					width={500}
+					height={300}
+				/>
 
 				<div>
 					<i className='fas fa-stopwatch fa-fw' /> Preparo: {props.time} <br />

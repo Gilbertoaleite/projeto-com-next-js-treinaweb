@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import {
     Button,
     TextField,
@@ -108,7 +109,15 @@ export default function Cadastro(){
             <Paper style={{margin: '24px auto', maxWidth: '800px', padding: '12px'}} >
                 <Grid container spacing={2} >
                     <Grid item container justify={'center'} >
-                        <img width={250} src={img} />
+                        {img && (
+                            <Image 
+                                width={250} 
+                                height={200} 
+                                src={img} 
+                                alt="Preview da receita"
+                                style={{objectFit: 'cover'}}
+                            />
+                        )}
                     </Grid>
                     <Grid item xs={12} >
                         <TextField label="Imagem" value={img} onChange={event => setImg(event.target.value)} fullWidth />

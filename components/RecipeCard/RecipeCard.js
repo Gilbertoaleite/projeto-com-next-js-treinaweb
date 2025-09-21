@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import RecipeCardStyled from './RecipeCard.styled';
 
@@ -8,7 +9,13 @@ export default function RecipeCard(props){
             <style jsx>{RecipeCardStyled}</style>
             <Link href={props.link} >
                 <a>
-                    <img className="recipe-picture" src={props.picture} />
+                    <Image 
+                        className="recipe-picture" 
+                        src={props.picture} 
+                        alt={props.name}
+                        width={345}
+                        height={200}
+                    />
                 </a>
             </Link>
             <div className="recipe-category" >

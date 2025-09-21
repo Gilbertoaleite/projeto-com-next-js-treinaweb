@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 
 import HeaderStyled from './Header.styled';
 
@@ -18,7 +19,7 @@ export default function Header(props) {
 			</Head>
 			<Link href='/'>
 				<a>
-					<img alt='Logo' src='/img/logo.svg?1' />
+					<Image alt='Logo' src='/img/logo.svg' width={150} height={50} />
 				</a>
 			</Link>
 		</header>
