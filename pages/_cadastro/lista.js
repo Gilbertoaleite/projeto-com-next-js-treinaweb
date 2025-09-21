@@ -57,7 +57,7 @@ export default function Lista() {
 								.filter((recipe) => recipe.category === category)
 								.map((recipe) => (
 									<ListItem key={recipe.id}>
-										<ListItemText primary={recipe.name} />
+										<ListItemText primary={recipe.title} />
 										<ListItemSecondaryAction>
 											<IconButton
 												edge='end'
@@ -73,7 +73,7 @@ export default function Lista() {
 												color={'primary'}
 												onClick={() => editRecipe(recipe.id)}
 											>
-												                         Editar
+											Editar
 											</IconButton> */}
 										</ListItemSecondaryAction>
 									</ListItem>

@@ -1,6 +1,6 @@
 import slugify from 'slugify';
 
-import {RecipeService} from '../../../services/RecipeService';
+import { RecipeService } from '../../../services/RecipeService';
 import Recipe from '../../../components/Recipe/Recipe';
 
 export async function getStaticPaths() {
@@ -10,12 +10,12 @@ export async function getStaticPaths() {
         return {
             params: {
                 category: slugify(recipe.category).toLowerCase(),
-                recipeId: `${recipe.id}-${slugify(recipe.name).toLowerCase()}`
+                recipeId: `${recipe.id}-${slugify(recipe.title).toLowerCase()}`
             }
         }
     })
 
-    return {paths, fallback: false};
+    return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
@@ -30,13 +30,13 @@ export async function getStaticProps({ params }) {
 }
 
 
-export default function RecipeContainer({recipe}){
+export default function RecipeContainer({ recipe }) {
 
-    return(
+    return (
         <div>
-            <Recipe 
-                name={recipe.name}
-                picture={recipe.img}
+            <Recipe
+                name={recipe.title}
+                picture={recipe.image}
                 time={recipe.time}
                 servings={recipe.servings}
             >
@@ -52,8 +52,8 @@ export default function RecipeContainer({recipe}){
                 <h2>Modo de Preparo</h2>
 
                 <ol>
-                    {recipe.directions.map((direction, index) => (
-                        <li key={index} >{direction}</li>
+                    {recipe.instructions && recipe.instructions.split('. ').map((instruction, index) => (
+                        <li key={index} >{instruction}</li>
                     ))}
                 </ol>
             </Recipe>

@@ -4,17 +4,17 @@ import Link from 'next/link';
 import RecipeCategoryStyled from './RecipeCategory.styled';
 import RecipeCard from '../RecipeCard/RecipeCard';
 
-function createUrl(recipe){
+function createUrl(recipe) {
     const category = slugifyCategory(recipe.category);
-    const recipeId = `${recipe.id}-${slugify(recipe.name).toLocaleLowerCase()}`;
+    const recipeId = `${recipe.id}-${slugify(recipe.title).toLocaleLowerCase()}`;
     return `/receitas/${category}/${recipeId}`;
 }
 
-function slugifyCategory(category){
+function slugifyCategory(category) {
     return slugify(category).toLocaleLowerCase();
 }
 
-export default function RecipeCategory({category, recipeList, maxElements = 3}){
+export default function RecipeCategory({ category, recipeList, maxElements = 3 }) {
     const recipes = recipeList.filter(recipe => recipe.category === category).slice(0, maxElements);
 
     return (
@@ -29,16 +29,16 @@ export default function RecipeCategory({category, recipeList, maxElements = 3}){
 
             <div className="recipes" >
                 {recipes.map(recipe => (
-                    <RecipeCard 
+                    <RecipeCard
                         key={recipe.id}
-                        name={recipe.name}
-                        picture={recipe.img}
+                        name={recipe.title}
+                        picture={recipe.image}
                         category={recipe.category}
                         link={createUrl(recipe)}
                     />
                 ))}
             </div>
-            
+
         </div>
     )
 }

@@ -1,6 +1,7 @@
 /** @format */
 
-import '../styles/globals.css';
+import '../styles/global.css';
+import '../styles/page.css';
 
 function MyApp({ Component, pageProps }) {
 	return <Component {...pageProps} />;
